@@ -1,0 +1,3 @@
+N = input()
+
+print(N)
