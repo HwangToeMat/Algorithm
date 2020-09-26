@@ -13,4 +13,4 @@ def solution(m, n, puddles):
             tmp = dp[i-1][j] + dp[i][j-1]
             dp[i][j] = tmp
     end = dp[-1][-1]
-    return end
+    return end % 1000000007
