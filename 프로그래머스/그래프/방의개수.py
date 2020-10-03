@@ -1,7 +1,7 @@
 def solution(arrows):
     s = [[0, 0]]
     answer = 0
-    route = []
+    route = set(())
     visit = set(())
     for a in arrows:
         tmp = []
@@ -12,20 +12,21 @@ def solution(arrows):
         t = [x, y]
         tmp.append(t)
         tmp.append(s[-1])
-        rev = [tmp[2], tmp[1], tmp[0]]
-        if tmp in route or rev in route:
+        rev = tuple([tuple(tmp[0]), tuple(tmp[1]), tuple(tmp[2])])
+        rev1 = tuple([tuple(tmp[2]), tuple(tmp[1]), tuple(tmp[0])])
+        if rev in route or rev1 in route:
             continue
         else:
-            if tuple(tmp[2]) in visit and tuple(tmp[1]) in visit:
+            if rev[2] in visit and rev[1] in visit:
                 answer += 2
-            elif tuple(tmp[2]) in visit or tuple(tmp[1]) in visit:
+            elif rev[2] in visit or rev[1] in visit:
                 answer += 1
             else:
                 answer += 0
-            route.append(tmp)
-            for t in tmp:
-                if set(t) not in visit:
-                    visit.add(tuple(t))
+            route.add(rev)
+            for t in rev:
+                if t not in visit:
+                    visit.add(t)
     return answer
 
 
