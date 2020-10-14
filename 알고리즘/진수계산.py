@@ -10,9 +10,8 @@ def convert(n, base):
 
 
 def convert(n, base):
-    T = [[_] for _ in range(base)]
     q, r = divmod(n, base)
     if q == 0:
-        return T[r]
+        return [r]
     else:
-        return convert(q, base) + T[r]
+        return convert(q, base) + [r]
