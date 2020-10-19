@@ -1,4 +1,4 @@
-def bubblesort(lst):
+def bubble_sort(lst):
     for end in range(len(lst)-1, -1, -1):
         swap = False
         for idx in range(end):
