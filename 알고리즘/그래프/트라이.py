@@ -42,7 +42,7 @@ class Trie():
                 result.append(v.fin)
             stack.extend(list(v.next.values()))
 
-        return print(result)
+        return result
 
     def show_list(self):
         curr_node = self.head
@@ -55,4 +55,4 @@ class Trie():
             if v.fin:
                 result.append(v.fin)
             stack.extend(list(v.next.values()))
-        return print(result)
+        return result
